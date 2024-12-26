@@ -520,6 +520,6 @@ rules:
   - "RULE-SET,ChinaDomain,🎯 全球直连"
   - "RULE-SET,ChinaCompanyIp,🎯 全球直连"
   - "RULE-SET,Download,🎯 全球直连"
-  - "DOMAIN-SUFFIX,jmsuper.xyz,🎯 全球直连"
+  - "DOMAIN-SUFFIX,jmsuper.xyz,💬 OpenAi"
   - "GEOIP,CN,🎯 全球直连"
   - "MATCH,🐟 漏网之鱼"
