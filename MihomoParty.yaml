@@ -13,6 +13,30 @@
 # @ConfigUrl         https://github.com/beishell/msclash/edit/main/MihomoParty.yaml
 #==========================================
 
+# DNS 安全配置 (添加到你的配置文件顶层)
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  # 默认使用的 DNS 服务器 (国内域名)
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  # 国外域名及被污染域名使用的 DNS 服务器
+  nameserver:
+    - https://dns.google/dns-query
+    - https://cloudflare-dns.com/dns-query
+  # 备用 DNS 服务器，在 nameserver 解析失败时使用
+  fallback:
+    - tls://1.0.0.1:853
+    - tls://dns.adguard-dns.com
+  fallback-filter:
+    geoip: true
+    ipcidr:
+      - 240.0.0.0/4
+
 proxy-groups:
 #分流分组
   - {name: 手动切换, type: select, include-all: true, icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png }
