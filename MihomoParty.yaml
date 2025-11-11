@@ -104,6 +104,7 @@ rules:
   - RULE-SET,Claude,Claude
   - RULE-SET,Copilot,Copilot
   - RULE-SET,Emby,Emby服务
+  - RULE-SET,Spotify,Spotify
   - RULE-SET,BiliBili,哔哩哔哩
   - RULE-SET,Bahamut,哔哩哔哩
   - RULE-SET,GlobalMedia,国际媒体
