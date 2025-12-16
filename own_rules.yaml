@@ -5,4 +5,5 @@
   - "DOMAIN-SUFFIX,tencent.com,DIRECT"
   - "DOMAIN-SUFFIX,jmsuper.com,手动切换"
   - "DOMAIN-SUFFIX,jmsooo.com,手动切换"
-  - "DOMAIN-SUFFIX,linux.do,DIRECT"
+  - "DOMAIN-SUFFIX,linux.do,手动切换"
+  - "DOMAIN-SUFFIX,deeplx.org,手动切换"
