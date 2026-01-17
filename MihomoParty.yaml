@@ -45,10 +45,10 @@ proxy-groups:
   - {name: 哔哩哔哩, type: select, proxies: [DIRECT, 香港节点, 台湾节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/bilibili.png }
   - {name: Emby服务, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点, 德国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
   - {name: Spotify, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点, 德国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Spotify.png }
-  - {name: OpenAi,   type: select, proxies: [美国节点, 德国节点, 手动切换], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
-  - {name: Gemini,   type: select, proxies: [美国节点, 德国节点, 手动切换], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/gemini-color.png }
-  - {name: Claude,   type: select, proxies: [美国节点, 德国节点, 手动切换], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/claude-color.png }
-  - {name: Copilot,  type: select, proxies: [美国节点, 德国节点, 手动切换], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/copilot-color.png }
+  - {name: OpenAi,   type: select, proxies: [美国节点, 德国节点, 手动切换, DIRECT], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
+  - {name: Gemini,   type: select, proxies: [美国节点, 德国节点, 手动切换, DIRECT], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/gemini-color.png }
+  - {name: Claude,   type: select, proxies: [美国节点, 德国节点, 手动切换, DIRECT], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/claude-color.png }
+  - {name: Copilot,  type: select, proxies: [美国节点, 德国节点, 手动切换, DIRECT], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/copilot-color.png }
   - {name: 国际媒体, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Streaming.png }
   - {name: 谷歌服务, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
   - {name: 电报消息, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
@@ -64,7 +64,7 @@ proxy-groups:
   - {name: 台湾节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "台|湾|TW|(?i)Taiwan", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png }
   - {name: 美国节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "美|US|(?i)States|American", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png }
   - {name: 狮城节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "新|坡|SG|(?i)Singapore", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png }
-  - {name: 德国节点, type: url-test, include-all: true, default: DIRECT, interval: 600, tolerance: 50,  filter: "德|DE|(?i)Germany", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/DE.png }
+  - {name: 德国节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "德|DE|(?i)Germany", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/DE.png }
 
 # 分流规则 
 rule-providers:
