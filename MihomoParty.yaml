@@ -64,7 +64,7 @@ proxy-groups:
   - {name: 台湾节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "台|湾|TW|(?i)Taiwan", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png }
   - {name: 美国节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "美|US|(?i)States|American", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png }
   - {name: 狮城节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "新|坡|SG|(?i)Singapore", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png }
-  - {name: 德国节点, type: url-test, include-all: true, default: DIRECT，interval: 600, tolerance: 50,  filter: "德|DE|(?i)Germany", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/DE.png }
+  - {name: 德国节点, type: url-test, include-all: true, default: DIRECT, interval: 600, tolerance: 50,  filter: "德|DE|(?i)Germany", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/DE.png }
 
 # 分流规则 
 rule-providers:
