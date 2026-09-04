@@ -14,3 +14,6 @@
   - "DOMAIN-SUFFIX,deeplx.org,手动切换"
   - "DOMAIN-SUFFIX,edu.cn,DIRECT"
   - "DOMAIN-SUFFIX,webtrn.cn,DIRECT"
+  - "DOMAIN-SUFFIX,tccsys.ad,DIRECT"
+  - "IP-CIDR,172.30.0.0/16,DIRECT,no-resolve"
+  - "IP-CIDR,139.217.229.218/32,DIRECT,no-resolve"
