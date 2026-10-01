@@ -113,6 +113,7 @@ rules:
   - RULE-SET,Github,全球加速
   - RULE-SET,OneDrive,全球加速
   - RULE-SET,Microsoft,全球加速
+  - RULE-SET,Ai,全球加速
   - RULE-SET,Google,谷歌服务
   - RULE-SET,Telegram,电报消息
   - RULE-SET,Twitter,全球加速
