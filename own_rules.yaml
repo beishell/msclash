@@ -1,19 +1,32 @@
 # 添加自定义规则示例
 
 +rules:
-  - "DOMAIN-SUFFIX,baidu.com,DIRECT"
-  - "DOMAIN-SUFFIX,tencent.com,DIRECT"
-  - "DOMAIN-SUFFIX,jmsuper.com,手动切换"
-  - "DOMAIN-SUFFIX,jmsooo.com,手动切换"
-  - "DOMAIN-SUFFIX,cr18.eu.org,手动切换"
-  - "DOMAIN-SUFFIX,themoviedb.org,手动切换"
-  - "DOMAIN-SUFFIX,tmdb.org,手动切换"
-  - "DOMAIN-SUFFIX,themoviedb.org,手动切换"
-  - "DOMAIN-SUFFIX,tmdb.org,手动切换"
-  - "DOMAIN-SUFFIX,linux.do,手动切换"
-  - "DOMAIN-SUFFIX,deeplx.org,手动切换"
-  - "DOMAIN-SUFFIX,edu.cn,DIRECT"
-  - "DOMAIN-SUFFIX,webtrn.cn,DIRECT"
+  # 自建探针直连（解决 Chrome WebSocket 离线与握手拦截）
+  - "DOMAIN-SUFFIX,owto.de,DIRECT"
+  # FortiClient VPN 内网 CRM 兼容直连
   - "DOMAIN-SUFFIX,tccsys.ad,DIRECT"
+  - "DOMAIN,EC2PRDDYNWBVM01.tccsys.ad,DIRECT"
+  - "DOMAIN,tpd.tccsys.ad,DIRECT"
   - "IP-CIDR,172.30.0.0/16,DIRECT,no-resolve"
   - "IP-CIDR,139.217.229.218/32,DIRECT,no-resolve"
+  # Google & Antigravity 核心接口（优先全球加速/自动容灾）
+  - "DOMAIN,firebaselogging-pa.googleapis.com,全球加速"
+  - "DOMAIN,daily-cloudcode-pa.googleapis.com,全球加速"
+  - "DOMAIN,generativelanguage.googleapis.com,全球加速"
+  - "DOMAIN-SUFFIX,googleapis.com,全球加速"
+  - "DOMAIN-SUFFIX,googleusercontent.com,全球加速"
+  - "DOMAIN-SUFFIX,google.com,谷歌服务"
+  - "DOMAIN-SUFFIX,gstatic.com,谷歌服务"
+  # 常用国内直连
+  - "DOMAIN-SUFFIX,baidu.com,DIRECT"
+  - "DOMAIN-SUFFIX,tencent.com,DIRECT"
+  - "DOMAIN-SUFFIX,edu.cn,DIRECT"
+  - "DOMAIN-SUFFIX,webtrn.cn,DIRECT"
+  # 媒体与社区（优先全球加速/自动测速选择，规避单节点失效）
+  - "DOMAIN-SUFFIX,jmsuper.com,全球加速"
+  - "DOMAIN-SUFFIX,jmsooo.com,全球加速"
+  - "DOMAIN-SUFFIX,cr18.eu.org,全球加速"
+  - "DOMAIN-SUFFIX,themoviedb.org,全球加速"
+  - "DOMAIN-SUFFIX,tmdb.org,全球加速"
+  - "DOMAIN-SUFFIX,linux.do,全球加速"
+  - "DOMAIN-SUFFIX,deeplx.org,全球加速"

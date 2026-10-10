@@ -13,21 +13,46 @@
 # @ConfigUrl         https://github.com/beishell/msclash/edit/main/MihomoParty.yaml
 #==========================================
 
+# Mixed Port (兼容 Chrome SOCKS5 WebSocket 握手)
+mixed-port: 7891
+port: 0
+socks-port: 0
+
 # DNS 安全配置 (添加到你的配置文件顶层)
 dns:
   enable: true
   listen: 0.0.0.0:53
-  ipv6: true
+  ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - +.lan
+    - +.local
+    - cu.090227.xyz
+    - cf.090227.xyz
+    - ct.090227.xyz
+    - cm.090227.xyz
+    - skk.moe
+    - +.090227.xyz
+    - +.729927.xyz
   # 默认使用的 DNS 服务器 (国内域名)
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
+    - 180.184.1.1
+  # 解析代理节点域名使用的 DNS 服务器 (支持 DoH，规避 OpenWrt 劫持)
+  proxy-server-nameserver:
+    - https://dns.alidns.com/dns-query
+    - 223.5.5.5
+    - 119.29.29.29
+  direct-nameserver:
+    - https://dns.alidns.com/dns-query
+    - 223.5.5.5
+    - 119.29.29.29
   # 国外域名及被污染域名使用的 DNS 服务器
   nameserver:
-    - https://dns.google/dns-query
-    - https://cloudflare-dns.com/dns-query
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
   # 备用 DNS 服务器，在 nameserver 解析失败时使用
   fallback:
     - tls://1.0.0.1:853
@@ -39,33 +64,33 @@ dns:
 
 proxy-groups:
 #分流分组
+  - {name: 自动选择, type: url-test, include-all: true, interval: 300, tolerance: 50, icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png }
+  - {name: 稳定优选, type: url-test, include-all: true, interval: 300, tolerance: 50, filter: "(?i)reality|hysteria|tuic|trojan|shadow", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Speed.png }
+  - {name: 狮城节点, type: url-test, include-all: true, interval: 300, tolerance: 50, filter: "新|坡|SG|(?i)Singapore", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png }
   - {name: 手动切换, type: select, include-all: true, icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png }
-  - {name: 全球加速, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
-  - {name: 苹果服务, type: select, proxies: [DIRECT, 手动切换, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png }
+  - {name: 全球加速, type: select, proxies: [自动选择, 稳定优选, 狮城节点, 手动切换, DIRECT, 香港节点, 日本节点, 台湾节点, 美国节点, 德国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
+  - {name: 苹果服务, type: select, proxies: [DIRECT, 自动选择, 稳定优选, 狮城节点, 手动切换, 香港节点, 日本节点, 台湾节点, 美国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png }
   - {name: 哔哩哔哩, type: select, proxies: [DIRECT, 香港节点, 台湾节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/bilibili.png }
-  - {name: Emby服务, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点, 德国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
-  - {name: Spotify, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点, 德国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Spotify.png }
-  - {name: OpenAi,   type: select, proxies: [美国节点, 德国节点, 手动切换, DIRECT], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
-  - {name: Gemini,   type: select, proxies: [美国节点, 德国节点, 手动切换, DIRECT], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/gemini-color.png }
-  - {name: Claude,   type: select, proxies: [美国节点, 德国节点, 手动切换, DIRECT], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/claude-color.png }
-  - {name: Copilot,  type: select, proxies: [美国节点, 德国节点, 手动切换, DIRECT], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/copilot-color.png }
-  - {name: 国际媒体, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Streaming.png }
-  - {name: 谷歌服务, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
-  - {name: 电报消息, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
-  - {name: 推特服务, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Twitter.png }
-  - {name: 游戏平台, type: select, proxies: [DIRECT, 手动切换, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
+  - {name: Emby服务, type: select, proxies: [自动选择, 稳定优选, 狮城节点, 手动切换, DIRECT, 香港节点, 日本节点, 台湾节点, 美国节点, 德国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
+  - {name: Spotify, type: select, proxies: [自动选择, 稳定优选, 狮城节点, 手动切换, DIRECT, 香港节点, 日本节点, 台湾节点, 美国节点, 德国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Spotify.png }
+  - {name: OpenAi,   type: select, proxies: [自动选择, 稳定优选, 狮城节点, 美国节点, 德国节点, 手动切换, DIRECT], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
+  - {name: Gemini,   type: select, proxies: [自动选择, 稳定优选, 狮城节点, 美国节点, 德国节点, 手动切换, DIRECT], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/gemini-color.png }
+  - {name: Claude,   type: select, proxies: [自动选择, 稳定优选, 狮城节点, 美国节点, 德国节点, 手动切换, DIRECT], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/claude-color.png }
+  - {name: Copilot,  type: select, proxies: [自动选择, 稳定优选, 狮城节点, 美国节点, 德国节点, 手动切换, DIRECT], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/copilot-color.png }
+  - {name: 国际媒体, type: select, proxies: [自动选择, 稳定优选, 狮城节点, 手动切换, DIRECT, 香港节点, 日本节点, 台湾节点, 美国节点, 德国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Streaming.png }
+  - {name: 谷歌服务, type: select, proxies: [自动选择, 稳定优选, 狮城节点, 手动切换, DIRECT, 香港节点, 日本节点, 台湾节点, 美国节点, 德国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
+  - {name: 电报消息, type: select, proxies: [自动选择, 稳定优选, 狮城节点, 手动切换, DIRECT, 香港节点, 日本节点, 台湾节点, 美国节点, 德国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
+  - {name: 推特服务, type: select, proxies: [自动选择, 稳定优选, 狮城节点, 手动切换, DIRECT, 香港节点, 日本节点, 台湾节点, 美国节点, 德国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Twitter.png }
+  - {name: 游戏平台, type: select, proxies: [DIRECT, 自动选择, 稳定优选, 狮城节点, 手动切换, 香港节点, 日本节点, 台湾节点, 美国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
   - {name: AdBlock,  type: select, proxies: [REJECT, DIRECT], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Adblock.png }
-  - {name: 兜底分流, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Final.png }
+  - {name: 兜底分流, type: select, proxies: [自动选择, 稳定优选, 狮城节点, 手动切换, DIRECT, 香港节点, 日本节点, 台湾节点, 美国节点, 德国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Final.png }
   
 #节点分组
-  - {name: 自动选择, type: url-test, include-all: true, interval: 600, tolerance: 50,  icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Urltest.png }
   - {name: 香港节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "港|HK|(?i)Hong", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png }             
   - {name: 日本节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "日|东京|JP|(?i)Japan", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png }
   - {name: 台湾节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "台|湾|TW|(?i)Taiwan", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png }
   - {name: 美国节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "美|US|(?i)States|American", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png }
-  - {name: 狮城节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "新|坡|SG|(?i)Singapore", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png }
   - {name: 德国节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "德|DE|(?i)Germany", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/DE.png }
-
 # 分流规则 
 rule-providers:
   AdBlock:     {behavior: domain,    interval: 86400, format: text, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules_domainset.txt ,                                           path: ./ruleset/anti-ad-clash.txt }
@@ -96,7 +121,29 @@ rule-providers:
   ChinaIP:     {behavior: ipcidr,    interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/soffchen/GeoIP2-CN/release/clash-rule-provider.yml ,                                     path: ./ruleset/ChinaIP.yaml      }
 
 # 分流Policy 
+hosts:
+  "tpd.tccsys.ad": "172.30.190.100"
+  "EC2PRDDYNWBVM01.tccsys.ad": "172.30.190.100"
+  "skk.moe": "104.26.14.26"
+
 rules:
+  - DOMAIN-SUFFIX,owto.de,DIRECT
+  - DOMAIN-SUFFIX,tccsys.ad,DIRECT
+  - DOMAIN,EC2PRDDYNWBVM01.tccsys.ad,DIRECT
+  - DOMAIN,tpd.tccsys.ad,DIRECT
+  - IP-CIDR,172.30.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,139.217.229.218/32,DIRECT,no-resolve
+  - DOMAIN,firebaselogging-pa.googleapis.com,全球加速
+  - DOMAIN,daily-cloudcode-pa.googleapis.com,全球加速
+  - DOMAIN,generativelanguage.googleapis.com,全球加速
+  - DOMAIN-SUFFIX,googleapis.com,全球加速
+  - DOMAIN-SUFFIX,googleusercontent.com,全球加速
+  - DOMAIN-SUFFIX,google.com,谷歌服务
+  - DOMAIN-SUFFIX,gstatic.com,谷歌服务
+  - DOMAIN-SUFFIX,baidu.com,DIRECT
+  - DOMAIN-SUFFIX,tencent.com,DIRECT
+  - DOMAIN-SUFFIX,edu.cn,DIRECT
+  - DOMAIN-SUFFIX,webtrn.cn,DIRECT
   - RULE-SET,AdBlock,AdBlock
   - RULE-SET,AdobeActivation,AdBlock
   - RULE-SET,Adobe,AdBlock
