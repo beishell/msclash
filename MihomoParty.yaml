@@ -18,7 +18,7 @@ mixed-port: 7891
 port: 0
 socks-port: 0
 
-# DNS 安全配置 (添加到你的配置文件顶层)
+# DNS 安全配置 (纯净防泄露架构)
 dns:
   enable: true
   listen: 0.0.0.0:53
@@ -35,30 +35,44 @@ dns:
     - skk.moe
     - +.090227.xyz
     - +.729927.xyz
-  # 默认使用的 DNS 服务器 (国内域名)
+  # 引导 DNS (用于本地解析引导)
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
     - 180.184.1.1
-  # 解析代理节点域名使用的 DNS 服务器 (支持 DoH，规避 OpenWrt 劫持)
+  # 解析代理节点域名使用的 DNS (支持 DoH，规避 OpenWrt 劫持)
   proxy-server-nameserver:
     - https://dns.alidns.com/dns-query
     - 223.5.5.5
     - 119.29.29.29
+  # 直连域名专用的国内快速加密 DNS
   direct-nameserver:
     - https://dns.alidns.com/dns-query
-    - 223.5.5.5
-    - 119.29.29.29
-  # 国外域名及被污染域名使用的 DNS 服务器
-  nameserver:
-    - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
-  # 备用 DNS 服务器，在 nameserver 解析失败时使用
+  # 国外域名及默认 DNS 服务器 (纯净海外 DoH，彻底杜绝国内 DNS 泄露)
+  nameserver:
+    - https://dns.google/dns-query
+    - https://cloudflare-dns.com/dns-query
+  # 针对国内域名与内网域名的精确分流策略 (确保国内网站秒开且不泄露)
+  nameserver-policy:
+    "geosite:cn,private":
+      - https://dns.alidns.com/dns-query
+      - https://doh.pub/dns-query
+    "tccsys.ad":
+      - 172.30.190.20
+    "EC2PRDDYNWBVM01.tccsys.ad":
+      - 172.30.190.20
+    "tpd.tccsys.ad":
+      - 172.30.190.20
+  # DNS 遵循分流规则路由 (关键：国外 DNS 请求全部走代理节点加密出境)
+  respect-rules: true
+  # 备用 DNS 服务器
   fallback:
+    - tls://8.8.8.8:853
     - tls://1.0.0.1:853
-    - tls://dns.adguard-dns.com
   fallback-filter:
     geoip: true
+    geoip-code: CN
     ipcidr:
       - 240.0.0.0/4
 
@@ -143,6 +157,16 @@ rules:
   - DOMAIN-SUFFIX,baidu.com,DIRECT
   - DOMAIN-SUFFIX,tencent.com,DIRECT
   - DOMAIN-SUFFIX,edu.cn,DIRECT
+  # 防 DNS 泄露置顶规则
+  - DOMAIN-SUFFIX,browserleaks.com,全球加速
+  - DOMAIN-SUFFIX,browserleaks.org,全球加速
+  - DOMAIN-SUFFIX,dnsleaktest.com,全球加速
+  - DOMAIN-SUFFIX,ipleak.net,全球加速
+  - DOMAIN-SUFFIX,dnsleak.com,全球加速
+  - DOMAIN-SUFFIX,expressvpn.com,全球加速
+  - DOMAIN-SUFFIX,surfshark.com,全球加速
+  - DOMAIN-SUFFIX,top10vpn.com,全球加速
+  - DOMAIN-SUFFIX,whoer.net,全球加速
   - DOMAIN-SUFFIX,webtrn.cn,DIRECT
   - RULE-SET,AdBlock,AdBlock
   - RULE-SET,AdobeActivation,AdBlock
@@ -166,9 +190,9 @@ rules:
   - RULE-SET,Twitter,全球加速
   - RULE-SET,Game,游戏平台
   - RULE-SET,ProxyLite,全球加速
-  - RULE-SET,ChinaIP,DIRECT
+  - RULE-SET,ChinaIP,DIRECT,no-resolve
   - RULE-SET,Direct,DIRECT
   - RULE-SET,Lan,DIRECT
   - RULE-SET,Download,DIRECT
-  - GEOIP,CN,DIRECT
+  - GEOIP,CN,DIRECT,no-resolve
   - MATCH,兜底分流
