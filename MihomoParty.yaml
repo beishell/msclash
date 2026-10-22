@@ -138,32 +138,32 @@ proxy-groups:
   - {name: 德国节点, type: url-test, include-all: true, interval: 600, tolerance: 50,  filter: "德|DE|(?i)Germany", icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/DE.png }
 # 分流规则 
 rule-providers:
-  AdBlock:     {behavior: domain,    interval: 86400, format: text, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules_domainset.txt ,                                           path: ./ruleset/anti-ad-clash.txt }
-  AdobeActivation:       {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/AdobeActivation/AdobeActivation.yaml ,             path: ./ruleset/AdobeActivation.yaml }
-  Adobe:       {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Adobe/Adobe.yaml ,             path: ./ruleset/Adobe.yaml        }
-  Ai:     {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ddgksf2013.top/filter/Ai.yaml ,         path: ./ruleset/Ai.yaml      }
-  Spotify:     {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Spotify/Spotify.yaml ,         path: ./ruleset/Spotify.yaml      }
-  OpenAi:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml ,                      path: ./ruleset/OpenAi.yaml       }
-  Gemini:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml ,                      path: ./ruleset/Gemini.yaml       }
-  Claude:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml ,                      path: ./ruleset/Claude.yaml       }
-  Copilot:     {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot.yaml ,                    path: ./ruleset/Copilot.yaml      }
-  Emby:        {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/beishell/msclash/refs/heads/main/Emby.yaml ,                                             path: ./ruleset/Emby.yaml         }
-  BiliBili:    {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml ,                  path: ./ruleset/BiliBili.yaml     }
-  Bahamut:     {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bahamut/Bahamut.yaml ,                    path: ./ruleset/Bahamut.yaml      } 
-  GlobalMedia: {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml ,  path: ./ruleset/GlobalMedia.yaml  }
-  OneDrive:    {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OneDrive/OneDrive.yaml ,       path: ./ruleset/OneDrive.yaml     }
-  Apple:       {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml ,              path: ./ruleset/Apple.yaml        }
-  Github:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml ,                      path: ./ruleset/Github.yaml       }
-  Microsoft:   {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml ,                path: ./ruleset/Microsoft.yaml    }
-  Google:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml ,                      path: ./ruleset/Google.yaml       }
-  Telegram:    {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml ,                  path: ./ruleset/Telegram.yaml     }
-  Twitter:     {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml ,                    path: ./ruleset/Twitter.yaml      }
-  Game:        {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.yaml ,                          path: ./ruleset/Game.yaml         }
-  ProxyLite:   {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ProxyLite/ProxyLite.yaml ,                path: ./ruleset/ProxyLite.yaml    }
-  Direct:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml ,                      path: ./ruleset/Direct.yaml       }
-  Lan:         {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml ,                            path: ./ruleset/Lan.yaml          }
-  Download:    {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml ,                  path: ./ruleset/Download.yaml     }
-  ChinaIP:     {behavior: ipcidr,    interval: 86400, format: yaml, type: http, url: https://ghfast.top/https://raw.githubusercontent.com/soffchen/GeoIP2-CN/release/clash-rule-provider.yml ,                                     path: ./ruleset/ChinaIP.yaml      }
+  AdBlock:     {behavior: domain,    interval: 86400, format: text, type: http, url: https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules_domainset.txt ,                                           path: ./ruleset/anti-ad-clash.txt, proxy: 全球加速 }
+  AdobeActivation: {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/AdobeActivation/AdobeActivation.yaml , path: ./ruleset/AdobeActivation.yaml, proxy: 全球加速 }
+  Adobe:       {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Adobe/Adobe.yaml ,             path: ./ruleset/Adobe.yaml, proxy: 全球加速 }
+  Ai:          {behavior: classical, interval: 86400, format: yaml, type: http, url: https://ddgksf2013.top/filter/Ai.yaml ,         path: ./ruleset/Ai.yaml, proxy: 全球加速 }
+  Spotify:     {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Spotify/Spotify.yaml ,         path: ./ruleset/Spotify.yaml, proxy: 全球加速 }
+  OpenAi:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml ,                      path: ./ruleset/OpenAi.yaml, proxy: 全球加速 }
+  Gemini:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml ,                      path: ./ruleset/Gemini.yaml, proxy: 全球加速 }
+  Claude:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml ,                      path: ./ruleset/Claude.yaml, proxy: 全球加速 }
+  Copilot:     {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot.yaml ,                    path: ./ruleset/Copilot.yaml, proxy: 全球加速 }
+  Emby:        {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/beishell/msclash/refs/heads/main/Emby.yaml ,                                             path: ./ruleset/Emby.yaml, proxy: 全球加速 }
+  BiliBili:    {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml ,                  path: ./ruleset/BiliBili.yaml, proxy: 全球加速 }
+  Bahamut:     {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bahamut/Bahamut.yaml ,                    path: ./ruleset/Bahamut.yaml, proxy: 全球加速 } 
+  GlobalMedia: {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GlobalMedia/GlobalMedia_Classical.yaml ,  path: ./ruleset/GlobalMedia.yaml, proxy: 全球加速 }
+  OneDrive:    {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OneDrive/OneDrive.yaml ,       path: ./ruleset/OneDrive.yaml, proxy: 全球加速 }
+  Apple:       {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml ,              path: ./ruleset/Apple.yaml, proxy: 全球加速 }
+  Github:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml ,                      path: ./ruleset/Github.yaml, proxy: 全球加速 }
+  Microsoft:   {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml ,                path: ./ruleset/Microsoft.yaml, proxy: 全球加速 }
+  Google:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml ,                      path: ./ruleset/Google.yaml, proxy: 全球加速 }
+  Telegram:    {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml ,                  path: ./ruleset/Telegram.yaml, proxy: 全球加速 }
+  Twitter:     {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml ,                    path: ./ruleset/Twitter.yaml, proxy: 全球加速 }
+  Game:        {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.yaml ,                          path: ./ruleset/Game.yaml, proxy: 全球加速 }
+  ProxyLite:   {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ProxyLite/ProxyLite.yaml ,                path: ./ruleset/ProxyLite.yaml, proxy: 全球加速 }
+  Direct:      {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml ,                      path: ./ruleset/Direct.yaml, proxy: 全球加速 }
+  Lan:         {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml ,                            path: ./ruleset/Lan.yaml, proxy: 全球加速 }
+  Download:    {behavior: classical, interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml ,                  path: ./ruleset/Download.yaml, proxy: 全球加速 }
+  ChinaIP:     {behavior: ipcidr,    interval: 86400, format: yaml, type: http, url: https://raw.githubusercontent.com/soffchen/GeoIP2-CN/release/clash-rule-provider.yml ,                                     path: ./ruleset/ChinaIP.yaml, proxy: 全球加速 }
 
 # 分流Policy 
 hosts:
@@ -233,5 +233,11 @@ rules:
   - RULE-SET,Direct,DIRECT
   - RULE-SET,Lan,DIRECT
   - RULE-SET,Download,DIRECT
-  - GEOIP,CN,DIRECT,no-resolve
+  # 本地原生中国全量域名数据库直连（从本地 geosite.dat 加载，无需网络下载，永不为0，永不超时，国内秒开）
+  - GEOSITE,cn,DIRECT
+  # 局域网与私网直连
+  - GEOIP,private,DIRECT,no-resolve
+  # 本地原生中国 IP 数据库最终兜底直连（未命中前排规则的国内域名解析出的国内 IP 坚决走直连，绝不出海）
+  - GEOIP,cn,DIRECT
+  # 兜底分流
   - MATCH,兜底分流
