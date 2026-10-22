@@ -1,4 +1,5 @@
 # 添加自定义规则示例
+interface-name: en0
 
 +rules:
   # 自建探针直连（解决 Chrome WebSocket 离线与握手拦截）

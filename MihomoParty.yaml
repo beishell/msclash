@@ -17,6 +17,7 @@
 mixed-port: 7891
 port: 0
 socks-port: 0
+interface-name: en0
 
 # DNS 安全配置 (纯净防泄露架构)
 dns:
@@ -28,6 +29,8 @@ dns:
   fake-ip-filter:
     - +.lan
     - +.local
+    - +.tccsys.ad
+    - +.ts.net
     - cu.090227.xyz
     - cf.090227.xyz
     - ct.090227.xyz
@@ -58,12 +61,14 @@ dns:
     "geosite:cn,private":
       - https://dns.alidns.com/dns-query
       - https://doh.pub/dns-query
+    "+.tccsys.ad":
+      - 172.30.190.20#utun7
     "tccsys.ad":
-      - 172.30.190.20
+      - 172.30.190.20#utun7
     "EC2PRDDYNWBVM01.tccsys.ad":
-      - 172.30.190.20
+      - 172.30.190.20#utun7
     "tpd.tccsys.ad":
-      - 172.30.190.20
+      - 172.30.190.20#utun7
   # DNS 遵循分流规则路由 (关键：国外 DNS 请求全部走代理节点加密出境)
   respect-rules: true
   # 备用 DNS 服务器
