@@ -19,6 +19,32 @@ port: 0
 socks-port: 0
 interface-name: en0
 
+# TUN 模式防死锁与防回环配置（关闭动态探测，绑定物理网卡 en0，排除代理节点与 VPN 网段）
+tun:
+  enable: false
+  stack: mixed
+  auto-route: true
+  auto-redirect: false
+  auto-detect-interface: false
+  dns-hijack:
+    - any:53
+  route-exclude-address:
+    - 10.0.0.0/8
+    - 100.64.0.0/10
+    - 103.72.62.103/32
+    - 139.217.229.218/32
+    - 172.16.0.0/12
+    - 172.30.0.0/16
+    - 192.168.0.0/16
+  mtu: 1500
+  device: utun1500
+  route-address:
+    - 0.0.0.0/1
+    - 128.0.0.0/1
+    - ::/1
+    - 8000::/1
+  strict-route: false
+
 # DNS 安全配置 (纯净防泄露架构)
 dns:
   enable: true
