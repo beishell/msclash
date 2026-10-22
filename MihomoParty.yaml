@@ -87,10 +87,10 @@ proxy-groups:
   - {name: 哔哩哔哩, type: select, proxies: [DIRECT, 香港节点, 台湾节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/bilibili.png }
   - {name: Emby服务, type: select, proxies: [自动选择, 稳定优选, 狮城节点, 手动切换, DIRECT, 香港节点, 日本节点, 台湾节点, 美国节点, 德国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
   - {name: Spotify, type: select, proxies: [自动选择, 稳定优选, 狮城节点, 手动切换, DIRECT, 香港节点, 日本节点, 台湾节点, 美国节点, 德国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Spotify.png }
-  - {name: OpenAi,   type: select, proxies: [自动选择, 稳定优选, 狮城节点, 美国节点, 德国节点, 手动切换, DIRECT], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
-  - {name: Gemini,   type: select, proxies: [自动选择, 稳定优选, 狮城节点, 美国节点, 德国节点, 手动切换, DIRECT], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/gemini-color.png }
-  - {name: Claude,   type: select, proxies: [自动选择, 稳定优选, 狮城节点, 美国节点, 德国节点, 手动切换, DIRECT], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/claude-color.png }
-  - {name: Copilot,  type: select, proxies: [自动选择, 稳定优选, 狮城节点, 美国节点, 德国节点, 手动切换, DIRECT], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/copilot-color.png }
+  - {name: OpenAi,   type: select, proxies: [狮城节点, 美国节点, 德国节点, 手动切换, 稳定优选, 自动选择, DIRECT], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
+  - {name: Gemini,   type: select, proxies: [狮城节点, 美国节点, 德国节点, 手动切换, 稳定优选, 自动选择, DIRECT], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/gemini-color.png }
+  - {name: Claude,   type: select, proxies: [狮城节点, 美国节点, 德国节点, 手动切换, 稳定优选, 自动选择, DIRECT], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/claude-color.png }
+  - {name: Copilot,  type: select, proxies: [狮城节点, 美国节点, 德国节点, 手动切换, 稳定优选, 自动选择, DIRECT], icon: https://ghfast.top/https://github.com/lobehub/lobe-icons/blob/master/packages/static-png/light/copilot-color.png }
   - {name: 国际媒体, type: select, proxies: [自动选择, 稳定优选, 狮城节点, 手动切换, DIRECT, 香港节点, 日本节点, 台湾节点, 美国节点, 德国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Streaming.png }
   - {name: 谷歌服务, type: select, proxies: [自动选择, 稳定优选, 狮城节点, 手动切换, DIRECT, 香港节点, 日本节点, 台湾节点, 美国节点, 德国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
   - {name: 电报消息, type: select, proxies: [自动选择, 稳定优选, 狮城节点, 手动切换, DIRECT, 香港节点, 日本节点, 台湾节点, 美国节点, 德国节点], icon: https://ghfast.top/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
@@ -147,11 +147,19 @@ rules:
   - DOMAIN,tpd.tccsys.ad,DIRECT
   - IP-CIDR,172.30.0.0/16,DIRECT,no-resolve
   - IP-CIDR,139.217.229.218/32,DIRECT,no-resolve
-  - DOMAIN,firebaselogging-pa.googleapis.com,全球加速
-  - DOMAIN,daily-cloudcode-pa.googleapis.com,全球加速
-  - DOMAIN,generativelanguage.googleapis.com,全球加速
-  - DOMAIN-SUFFIX,googleapis.com,全球加速
-  - DOMAIN-SUFFIX,googleusercontent.com,全球加速
+  # Google & Antigravity 核心接口（强制绑定 Gemini 策略组，锁定 SG/US 节点，规避 HK 节点 403 地区限制）
+  - DOMAIN-SUFFIX,antigravity-unleash.goog,Gemini
+  - DOMAIN-SUFFIX,goog,Gemini
+  - DOMAIN-SUFFIX,antigravity.google,Gemini
+  - DOMAIN-SUFFIX,antigravity.dev,Gemini
+  - DOMAIN,daily-cloudcode-pa.googleapis.com,Gemini
+  - DOMAIN,cloudcode-pa.googleapis.com,Gemini
+  - DOMAIN,generativelanguage.googleapis.com,Gemini
+  - DOMAIN-KEYWORD,cloudcode,Gemini
+  - DOMAIN-KEYWORD,antigravity,Gemini
+  - DOMAIN,firebaselogging-pa.googleapis.com,Gemini
+  - DOMAIN-SUFFIX,googleapis.com,谷歌服务
+  - DOMAIN-SUFFIX,googleusercontent.com,谷歌服务
   - DOMAIN-SUFFIX,google.com,谷歌服务
   - DOMAIN-SUFFIX,gstatic.com,谷歌服务
   - DOMAIN-SUFFIX,baidu.com,DIRECT
