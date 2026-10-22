@@ -17,7 +17,8 @@
 mixed-port: 7891
 port: 0
 socks-port: 0
-interface-name: en0
+# 出站接口名（跨平台兼容：由各端系统根据物理网卡自动适配或覆写脚本动态绑定）
+# interface-name: en0
 
 # TUN 模式防死锁与防回环配置（关闭动态探测，绑定物理网卡 en0，排除代理节点与 VPN 网段）
 tun:
