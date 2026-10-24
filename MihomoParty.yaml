@@ -37,6 +37,10 @@ tun:
     - 172.16.0.0/12
     - 172.30.0.0/16
     - 192.168.0.0/16
+    - fd7a:115c:a1e0::/48
+  exclude-interface:
+    - Tailscale
+    - utun4
   mtu: 1500
   device: utun1500
   route-address:
@@ -58,6 +62,8 @@ dns:
     - +.local
     - +.tccsys.ad
     - +.ts.net
+    - +.tailscale.com
+    - +.tailscale.io
     - cu.090227.xyz
     - cf.090227.xyz
     - ct.090227.xyz
@@ -173,6 +179,18 @@ hosts:
   "skk.moe": "104.26.14.26"
 
 rules:
+  # Tailscale 专属直连穿透（防止 STUN 打洞失败与 WireGuard 流量被代理劫持）
+  - PROCESS-NAME,Tailscale,DIRECT
+  - PROCESS-NAME,io.tailscale.ipn.macsys.network-extension,DIRECT
+  - PROCESS-NAME,tailscaled,DIRECT
+  - DST-PORT,41641,DIRECT
+  - SRC-PORT,41641,DIRECT
+  - DST-PORT,3478,DIRECT
+  - DOMAIN-SUFFIX,ts.net,DIRECT
+  - DOMAIN-SUFFIX,tailscale.com,DIRECT
+  - DOMAIN-SUFFIX,tailscale.io,DIRECT
+  - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+  - IP-CIDR6,fd7a:115c:a1e0::/48,DIRECT,no-resolve
   - DOMAIN-SUFFIX,owto.de,DIRECT
   - DOMAIN-SUFFIX,tccsys.ad,DIRECT
   - DOMAIN,EC2PRDDYNWBVM01.tccsys.ad,DIRECT

@@ -3,6 +3,18 @@
 # interface-name: en0
 
 +rules:
+  # Tailscale 专属直连穿透（防止 STUN 打洞失败与 WireGuard 流量被代理劫持）
+  - "PROCESS-NAME,Tailscale,DIRECT"
+  - "PROCESS-NAME,io.tailscale.ipn.macsys.network-extension,DIRECT"
+  - "PROCESS-NAME,tailscaled,DIRECT"
+  - "DST-PORT,41641,DIRECT"
+  - "SRC-PORT,41641,DIRECT"
+  - "DST-PORT,3478,DIRECT"
+  - "DOMAIN-SUFFIX,ts.net,DIRECT"
+  - "DOMAIN-SUFFIX,tailscale.com,DIRECT"
+  - "DOMAIN-SUFFIX,tailscale.io,DIRECT"
+  - "IP-CIDR,100.64.0.0/10,DIRECT,no-resolve"
+  - "IP-CIDR6,fd7a:115c:a1e0::/48,DIRECT,no-resolve"
   # 自建探针直连（解决 Chrome WebSocket 离线与握手拦截）
   - "DOMAIN-SUFFIX,owto.de,DIRECT"
   # FortiClient VPN 内网 CRM 兼容直连
