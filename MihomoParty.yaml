@@ -30,13 +30,10 @@ tun:
   dns-hijack:
     - any:53
   route-exclude-address:
-    - 10.0.0.0/8
     - 100.64.0.0/10
     - 103.72.62.103/32
     - 139.217.229.218/32
-    - 172.16.0.0/12
     - 172.30.0.0/16
-    - 192.168.0.0/16
     - fd7a:115c:a1e0::/48
   exclude-interface:
     - Tailscale
