@@ -26,7 +26,7 @@ tun:
   stack: mixed
   auto-route: true
   auto-redirect: false
-  auto-detect-interface: false
+  auto-detect-interface: true
   dns-hijack:
     - any:53
   route-exclude-address:
@@ -43,11 +43,6 @@ tun:
     - utun4
   mtu: 1500
   device: utun1500
-  route-address:
-    - 0.0.0.0/1
-    - 128.0.0.0/1
-    - ::/1
-    - 8000::/1
   strict-route: false
 
 # DNS 安全配置 (纯净防泄露架构)
