@@ -7,6 +7,8 @@
   - "PROCESS-NAME,Tailscale,DIRECT"
   - "PROCESS-NAME,io.tailscale.ipn.macsys.network-extension,DIRECT"
   - "PROCESS-NAME,tailscaled,DIRECT"
+  - "PROCESS-NAME,tailscaled.exe,DIRECT"
+  - "PROCESS-NAME,tailscale-ipn.exe,DIRECT"
   - "DST-PORT,41641,DIRECT"
   - "SRC-PORT,41641,DIRECT"
   - "DST-PORT,3478,DIRECT"

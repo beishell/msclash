@@ -87,13 +87,13 @@ dns:
       - https://dns.alidns.com/dns-query
       - https://doh.pub/dns-query
     "+.tccsys.ad":
-      - 172.30.190.20#utun7
+      - 172.30.190.20
     "tccsys.ad":
-      - 172.30.190.20#utun7
+      - 172.30.190.20
     "EC2PRDDYNWBVM01.tccsys.ad":
-      - 172.30.190.20#utun7
+      - 172.30.190.20
     "tpd.tccsys.ad":
-      - 172.30.190.20#utun7
+      - 172.30.190.20
   # DNS 遵循分流规则路由 (关键：国外 DNS 请求全部走代理节点加密出境)
   respect-rules: true
   # 备用 DNS 服务器
@@ -175,6 +175,8 @@ rules:
   - PROCESS-NAME,Tailscale,DIRECT
   - PROCESS-NAME,io.tailscale.ipn.macsys.network-extension,DIRECT
   - PROCESS-NAME,tailscaled,DIRECT
+  - PROCESS-NAME,tailscaled.exe,DIRECT
+  - PROCESS-NAME,tailscale-ipn.exe,DIRECT
   - DST-PORT,41641,DIRECT
   - SRC-PORT,41641,DIRECT
   - DST-PORT,3478,DIRECT
