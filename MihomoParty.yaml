@@ -4,12 +4,12 @@
 # @TgChannel         //
 # @WechatID          //
 # @Feedback          //
-# @UpdateTime        2025-10-14 16:53:59 UTC/GMT +8
-# @Function          支持手动选择、自动测速、广告屏蔽、兜底分流、按国家分组节点、策略图标等、增加Adobe分流、增加常见Ai分流
+# @UpdateTime        2026-11-18 12:02:29 UTC/GMT +8
+# @Function          支持手动选择、自动测速、广告屏蔽、兜底分流、按国家分组节点、策略图标等、增加Adobe分流、增加常见Ai分流、兼容OneDrive与Scene7图床
 # @mihomo-party      https://github.com/mihomo-party-org/mihomo-party/releases
 # @howtouse          主界面添加本配置[覆写]，然后使用内置的[SubStore]添加机场，之后去[订阅管理]，在配置的[编辑信息]中绑定机场订阅，开启系统代理即可使用
 # @Thanks            @blackmatrix7, @Fndroid, @Anti, @Orz-3, @Koolson, @soffchen, @ACL4SSR, @Cats-Team
-# @ConfigVersion     1.0.19
+# @ConfigVersion     1.0.20
 # @ConfigUrl         https://github.com/beishell/msclash/edit/main/MihomoParty.yaml
 #==========================================
 
@@ -220,6 +220,27 @@ rules:
   - DOMAIN-SUFFIX,top10vpn.com,全球加速
   - DOMAIN-SUFFIX,whoer.net,全球加速
   - DOMAIN-SUFFIX,webtrn.cn,DIRECT
+  # 科勒等网站的 Adobe Scene7 图床放行（需置于 Adobe 规则集之前，避免被 AdBlock 误杀）
+  - DOMAIN-SUFFIX,scene7.com,DIRECT
+  # OneDrive / SharePoint 数据面与国内可达边缘节点直连（提速并防止代理断流）
+  - DOMAIN-SUFFIX,sharepoint.com,DIRECT
+  - DOMAIN-SUFFIX,sharepointonline.com,DIRECT
+  - DOMAIN-SUFFIX,oneclient.sfx.ms,DIRECT
+  - DOMAIN-SUFFIX,spoprod-a.akamaihd.net,DIRECT
+  - DOMAIN-SUFFIX,livefilestore.com,DIRECT
+  - DOMAIN-SUFFIX,microsoftpersonalcontent.com,DIRECT
+  - DOMAIN-SUFFIX,storage.live.com,DIRECT
+  - DOMAIN-SUFFIX,storage.msn.com,DIRECT
+  - DOMAIN-SUFFIX,svc.ms,DIRECT
+  - DOMAIN,api.onedrive.com,DIRECT
+  - DOMAIN-SUFFIX,msftconnecttest.com,DIRECT
+  - DOMAIN-SUFFIX,msftncsi.com,DIRECT
+  # OneDrive 个人版控制面与登录走 稳定优选（避开 CF ws 节点 TLS 握手超时）
+  - DOMAIN-SUFFIX,onedrive.live.com,稳定优选
+  - DOMAIN-SUFFIX,1drv.com,稳定优选
+  - DOMAIN-SUFFIX,onedrive.com,稳定优选
+  - DOMAIN-SUFFIX,login.live.com,稳定优选
+  - DOMAIN-SUFFIX,graph.microsoft.com,稳定优选
   - RULE-SET,AdBlock,AdBlock
   - RULE-SET,AdobeActivation,AdBlock
   - RULE-SET,Adobe,AdBlock
