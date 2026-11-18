@@ -45,6 +45,7 @@
   - "DOMAIN-SUFFIX,tencent.com,DIRECT"
   - "DOMAIN-SUFFIX,edu.cn,DIRECT"
   - "DOMAIN-SUFFIX,webtrn.cn,DIRECT"
+  - "DOMAIN-SUFFIX,scene7.com,DIRECT"
   # Linux.do & Cloudflare 挑战验证同源同节点分流（消除 403 / 保证 Turnstile 秒过）
   - "DOMAIN-SUFFIX,linux.do,全球加速"
   - "DOMAIN-SUFFIX,ldstatic.com,全球加速"
